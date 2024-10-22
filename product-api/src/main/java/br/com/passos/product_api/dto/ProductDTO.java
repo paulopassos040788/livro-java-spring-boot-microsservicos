@@ -24,7 +24,7 @@ public class ProductDTO {
     private Float preco;
 
     @NotNull
-    private CategoryDTO categoryDTO ;
+    private CategoryDTO category ;
 
     public static ProductDTO convert(Product product) {
         ProductDTO productDTO = new ProductDTO();
@@ -34,7 +34,7 @@ public class ProductDTO {
                 product.getProductIdentifier());
         productDTO.setDescricao(product.getDescricao());
         if (product.getCategory() != null) {
-            productDTO.setCategoryDTO(CategoryDTO.convert(product.getCategory()));
+            productDTO.setCategory(CategoryDTO.convert(product.getCategory()));
         }
         return productDTO;
     }
