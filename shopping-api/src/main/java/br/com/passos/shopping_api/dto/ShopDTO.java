@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -16,10 +17,8 @@ public class ShopDTO {
     @NotBlank
     private String userIdentifier;
 
-    @NotNull
     private Float total;
 
-    @NotNull
     private LocalDateTime date;
 
     @NotNull
@@ -30,6 +29,12 @@ public class ShopDTO {
         shopDTO.setUserIdentifier(shop.getUserIdentifier());
         shopDTO.setTotal(shop.getTotal());
         shopDTO.setDate(shop.getDate());
+        shopDTO.setItems(
+                shop.getItems()
+                        .stream()
+                        .map(ItemDTO::convert)
+                        .collect(Collectors.toList())
+        );
         return shopDTO;
     }
 

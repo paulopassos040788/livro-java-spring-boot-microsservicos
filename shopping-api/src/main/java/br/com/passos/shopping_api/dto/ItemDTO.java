@@ -19,8 +19,7 @@ public class ItemDTO {
 
     public static ItemDTO convert(Item item) {
         ItemDTO itemDTO = new ItemDTO();
-        itemDTO.setProductIdentifier(
-                item.getProductIdentifier());
+        itemDTO.setProductIdentifier(item.getProductIdentifier());
         itemDTO.setPrice(item.getPrice());
         return itemDTO;
     }
